@@ -1,0 +1,37 @@
+{% extends  is_granted('ROLE_ADMIN')? '/admin_home/index.html.twig' : 'base.html.twig' %}
+
+{% block title %}Liste des départements{% endblock %}
+
+{% block body %}
+    <h2></h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>DEPTNO</th>
+                <th>DNAME</th>
+                <th>LOC</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for department in departments %}
+            <tr>
+                <td>{{ department.DEPTNO }}</td>
+                <td>{{ department.DNAME }}</td>
+                <td>{{ department.LOC }}</td>
+                <td>
+                    <a href="{{ path('app_department_show', {'DEPTNO': department.DEPTNO}) }}">show</a>
+                    <a href="{{ path('app_department_edit', {'DEPTNO': department.DEPTNO}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_department_new') }}">Create new</a>
+{% endblock %}

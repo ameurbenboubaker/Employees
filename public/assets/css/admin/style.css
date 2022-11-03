@@ -1,0 +1,92 @@
+div.navbar-menu{width: auto;}
+tr.level1 td{
+    font-weight: 800;
+    background-color: #9f9ff3;
+    /* padding: 10px 0; */
+}
+tr.level2 td{
+    font-weight: 600;
+    background-color: #bdbdfd;
+    padding-left: 5px;
+    /*padding-right: 0;*/
+}
+tr.level3 td{
+    font-weight: 400;
+    background-color: #c6c6e5;
+    padding-left: 35px;
+}
+tr.level4 td{
+    background-color: #dbdbf9;
+    padding-left: 50px;
+}
+tr.level5 td{
+    background-color: #fff;
+    padding-left: 70px;
+}
+tbody tr:hover td {
+    background-color: #8a8af5;
+    color: #fff;
+}
+#employee div {
+    padding-left: 20px;
+}
+#employee div input {
+    background-color: #fff;
+    padding-left: 2px;
+    border: solid 1px rgb(139, 134, 134);
+}
+#employee div label {
+    width: 10%;
+}
+#employee_MGR, #employee_DEPTNO {
+    width: 190px;
+    background: #fff;
+    border: solid 1px rgb(139, 134, 134);
+}
+.navbar-item .navbar-dropdown {
+background-color: #000;
+}
+.navbar-item.dropdown {
+    float: right;
+}
+.table td, .table th {
+    vertical-align: inherit;
+}
+.table td.ids{
+    padding-left: 10px;
+}
+.table .ename span{
+    position: absolute;
+    height: 100%;
+    top: 0;
+}
+.table .ename span:before{
+    content: '\f00c';
+    font-family: 'FontAwesome';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #4a5ba9;
+    line-height: 35px;
+    text-align: center;
+    font-size: 14px;
+    content: '';
+    position: absolute;
+    left: -5px;
+    width: 3px;
+    height: 100%;
+    background: #fff;
+}
+.table td{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.table .navbar-item.has-user-avatar>.navbar-link {
+    border: solid 1px #000;
+}
+.table .navbar-item.dropdown {
+    float: right;
+}
+div.navbar-end .navbar-item .navbar-dropdown {
+    background-color: #fff;
+    }

@@ -1,0 +1,62 @@
+  {% extends  is_granted('ROLE_ADMIN')? '/admin_home/index.html.twig' : 'base.html.twig' %}
+
+{% block title %}{{(title is defined)?title:''}}{% endblock %}
+
+{% block body %}
+    <h1></h1>
+    <div class="col-md-12 bg-light text-right">
+    <a class="btn btn-primary text-right" role="button" href="{{ path('app_employee_new') }}">Create new</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>EMPNO</th>
+                <th>ENAME</th>
+                <th>JOB</th>
+                <th>MGR</th>
+                <th>HIREDATE</th>
+                <th>SAL</th>
+                <th>COMM</th>
+                <th>DEPTNO</th>
+                <th style="text-align:center">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employee in employees %}
+            <tr class="level{{ employee.LEVEL }}">
+                <td class="ids">{{ employee.EMPNO }}</td>
+                <td class="ename"><span></span>{{ employee.ENAME }}</td>
+                <td>{{ employee.JOB }}</td>
+                <td>{{ employee.MGR }}</td>
+                <td>{{ employee.HIREDATE ? employee.HIREDATE|date('Y-m-d') : '' }}</td>
+                <td>{{ employee.SAL }}</td>
+                <td>{{ employee.COMM }}</td>
+                <td>{{ employee.DEPTNO }}</td>
+                <td>
+                <div class="navbar-item dropdown has-divider has-user-avatar">
+                        <a class="navbar-link">
+                           
+                            <div class="is-user-name"><span>...</span></div>
+                            <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
+                        </a>
+                        <div class="navbar-dropdown">
+                                <a class="navbar-item" href="{{ path('app_employee_show', {'EMPNO': employee.EMPNO}) }}">show</a>
+                            
+                            <a class="navbar-item" href="{{ path('app_employee_edit', {'EMPNO': employee.EMPNO}) }}">edit</a>
+                        </div>
+                    </div>
+                        
+                        
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_employee_new') }}">Create new</a>
+{% endblock %}
